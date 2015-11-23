@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.xyz.com/xsd/services/BillPayment/2.2"
+  xmlns="http://www.xyz.com/xsd/services/BillPayment/2.2"
+  xmlns:msg="http://www.xyz.com/xsd/types/message/1.2"
+elementFormDefault="qualified">
+
+  <xs:import namespace="http://www.xyz.com/xsd/types/message/1.2"    schemaLocation="/tmp/samplews/01-wsdl2java/xsd/headers.xsd"/>
+
+  <xs:annotation>
+    <xs:documentation>
+      This schema defines the structures of the input and output message types for the BillPayment service.
+    </xs:documentation>
+    </xs:annotation>
+    
+    <xs:element name="BillPaymentResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Contains the bill payment response information
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header" type="msg:ResponseHeader">
+        </xs:element>
+        <xs:element name="Body">
+          <xs:complexType>
+            <xs:sequence>
+               <xs:element name="PaymentConfirmationID" type="xs:string"/>
+               <xs:element name="PaymentDate" type="xs:date"/>
+               <xs:element name="RecurrentPayment" type="xs:boolean" use="optional"/>
+             </xs:sequence>
+           </xs:complexType>
+         </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+ </xs:element>
+ 
+ <xs:element name="BillPaymentRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Contains the bill payment request information
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header" type="msg:RequestHeader">
+        </xs:element>
+        <xs:element name="Body">
+          <xs:complexType>
+            <xs:sequence>
+               <xs:element name="AccountID" type="xs:string"/>
+               <xs:element name="PaymentDate" type="xs:date"/>
+             </xs:sequence>
+           </xs:complexType>
+         </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+ </xs:element>
+ 
+</xs:schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.xyz.com/xsd/types/message/1.2"
+  xmlns="http://www.xyz.com/xsd/types/message/1.2">
+
+  <xs:element name="Service">
+    <xs:complexType>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="RequestHeader">
+    <xs:sequence>
+      <xs:group ref="ServiceTimestamp"/>
+      <xs:element name="ParentEventID" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ResponseHeader">
+    <xs:sequence>
+      <xs:group ref="ServiceTimestamp"/>
+      <xs:element name="EventID" type="xs:string" minOccurs="0"/>
+      <xs:element name="Request">
+        <xs:complexType>
+          <xs:group ref="ServiceTimestamp"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:group name="ServiceTimestamp">
+    <xs:sequence>
+      <xs:element ref="Service"/>
+      <xs:element name="Timestamp" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:group>
+
+</xs:schema>
