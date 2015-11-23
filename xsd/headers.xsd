@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="http://www.xyz.com/xsd/types/message/1.2"
-  xmlns="http://www.xyz.com/xsd/types/message/1.2">
+  targetNamespace="http://www.airline.com/xsd/types/message/1.2"
+  xmlns="http://www.airline.com/xsd/types/message/1.2">
 
   <xs:element name="Service">
     <xs:complexType>
